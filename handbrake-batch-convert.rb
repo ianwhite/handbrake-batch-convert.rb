@@ -10,8 +10,6 @@ end
 @base = (ARGV[2] && File.expand_path(ARGV[2])) || File.dirname(@src)
 @exts = ['avi', 'mkv']
 
-
-  
 def target_file(f)
   File.join(@target, f.sub(@base, '').sub(/\.\w+$/,'.m4v')) 
 end

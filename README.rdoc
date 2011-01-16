@@ -1,0 +1,27 @@
+This is a quick and dirty script that converts avi and mkv files to m4v suitable for atv-2g, using HandbrakeCli
+
+It does just what I need it to do, and so is probably limited in use.  It's very simple though so should be easy to adapt to your needs.
+
+== Usage
+
+  ./handbrake-batch-convert.rb /Users/ian/Downloads/Media /Volumes/external
+  
+This will recursively scan ~/Downloads/Media and convert all avi and mkv files in there into m4vs in the same locations on /Volumes/external
+  
+The base folder used for the destination files is the folder above the specifed source.  So the example above will result in:
+
+  /Users/ian/Downloads/Media/foo.avi          =>  /Volumes/external/Media/foo.m4v        
+  /Users/ian/Downloads/Media/bar/foo.avi      =>  /Volumes/external/Media/bar/foo.m4v    
+  /Users/ian/Downloads/Media/bar/baz/foo.avi  =>  /Volumes/external/Media/bar/baz/foo.m4v
+
+To specify a different base folder, use the third argument
+  
+  ./handbrake-batch-convert.rb /Users/ian/Downloads/Media /Volumes/external/m4vs /Users/ian/Downloads/Media
+    
+will result in:
+
+  /Users/ian/Downloads/Media/foo.avi          =>  /Volumes/external/m4vs/foo.m4v        
+  /Users/ian/Downloads/Media/bar/foo.avi      =>  /Volumes/external/m4vs/bar/foo.m4v    
+  /Users/ian/Downloads/Media/bar/baz/foo.avi  =>  /Volumes/external/m4vs/bar/baz/foo.m4v
+
+This script will not overwrite any existing files in the destination, so you can use it to scan and convert files in a directory that has already been converted (as long as you use the same arguments)
