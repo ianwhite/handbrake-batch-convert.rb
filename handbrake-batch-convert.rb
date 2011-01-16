@@ -1,13 +1,15 @@
 #!/usr/bin/env ruby
 
+if !(2..3).include?(ARGV.length) || !File.exist?(ARGV[0])
+  puts "Usage: handbrake-batch-convert.rb SRC_PATH DEST_PATH [BASE_PATH]"
+  exit false
+end
+
 @src = File.expand_path(ARGV[0])
 @target = File.expand_path(ARGV[1])
 @base = (ARGV[2] && File.expand_path(ARGV[2])) || File.dirname(@src)
 @exts = ['avi', 'mkv']
 
-if !(2..3).include?(ARGV.length)
-  raise "Usage handbrake-batch-convert.rb SRC_PATH DEST_PATH [BASE_PATH]"
-end
 
   
 def target_file(f)
