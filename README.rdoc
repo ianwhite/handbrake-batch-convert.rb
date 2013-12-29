@@ -1,6 +1,11 @@
 This is a quick and dirty script that converts avi and mkv files to m4v suitable for atv-2g, using HandbrakeCli
 
 It does just what I need it to do, and so is probably limited in use.  It's very simple though so should be easy to adapt to your needs.
+=== Install HandBrakeCLI
+To usage ruby script it's necessary to have installed HandBrakeCLI in your system. To do that you can do executing these lines:
+
+  apt-get install handbrake-cli
+
 
 == Usage
 
